@@ -1,0 +1,36 @@
+.carousel{
+  height: 650px;
+  display: flex;
+  align-items: center;
+  background-image: url("https://preview.thenewsmarket.com/Previews/ADID/StillAssets/1920x1080/663990_v2.jpg");
+}
+.carousel a{
+  display: flex;
+  flex-direction: column;
+  text-decoration: none;
+  color: black;
+  text-wrap: wrap;
+  width: 330px;
+  height: 400px;
+  background-color: white;
+  font-size: 50px;
+  font-family: "Nunito", sans-serif;
+  margin-left: 50px;
+  border-radius: 25px;
+}
+.carousel a button{
+  margin-top: auto;
+  width: 125px;
+  height: 45px;
+  background: none;
+  border-radius: 14px;
+  margin-bottom: 25px;
+  margin-left: 25px;
+  font-size: 18px;
+}
+.carousel a p{
+  margin-left: 15px;
+}
+.carousel a button:hover{
+  background-color: #e8e8e8;
+}

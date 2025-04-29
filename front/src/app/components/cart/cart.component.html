@@ -1,0 +1,36 @@
+<div *ngIf="cartService.getItems().length==0; else elseBlock">
+  <div class="empty">
+    <h1>Your cart is empty!</h1>
+    <a href="products">
+      <button class="btn"><b>START SHOPPING</b></button>
+    </a>
+  </div>
+</div>
+<ng-template #elseBlock>
+  <div class="all">
+  <div class="container">
+  <h1>Your products: </h1>
+  <div *ngFor="let product of cartService.getItems()">
+    <div class="product">
+      <img ngSrc="{{product.image}}" width="200" height="200">
+      <p>{{product.name}}</p>
+      <p>{{product.price}}$
+      <p>{{product.quantity}}</p>
+      <button id="btn1" (click)="removeItem(product)">X</button>
+    </div>
+  </div>
+  </div>
+    <div class="checkout">
+      <h1>Your order:</h1>
+      <div class="content">
+      @for( product of cartService.getItems(); track product.id){
+        <p>1x {{product.name}}</p>
+        <p>{{product.price}}</p>
+      }
+      </div>
+      <h3>Shipping cost:</h3>
+      <h1>Total: {{price}}$</h1>
+      <button id="check">CHECK OUT</button>
+    </div>
+  </div>
+</ng-template>

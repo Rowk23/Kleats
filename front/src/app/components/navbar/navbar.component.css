@@ -1,0 +1,27 @@
+nav{
+  min-height: 10vh;
+  outline-style: solid;
+  outline-width: 0.01rem;
+  display: flex;
+  align-items:center;
+  padding-right: 20px;
+  padding-left: 20px;
+  justify-content: space-evenly;
+}
+
+nav a{
+  text-decoration: none;
+  color: black;
+  font-size: 18px;
+}
+#searchbar{
+  width: 600px;
+  height: 35px;
+  border-radius: 30px;
+  padding-left: 15px;
+  margin-left: 192px;
+}
+.right{
+  display: flex;
+  gap: 50px;
+}

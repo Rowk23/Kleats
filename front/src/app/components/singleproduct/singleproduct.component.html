@@ -1,0 +1,27 @@
+<div class="container">
+  <div class="images">
+    <img ngSrc="{{product.image}}" width="500" height="500">
+  </div>
+  <div class="text">
+    <p>{{product.name}}</p>
+    <p>Price: {{product.price}}$</p>
+    <div class="options">
+      <p id="sz">Sizes:</p>
+      <div class="sizes" tabindex="0">
+        <input value="XS" readonly>
+        <input value="S" readonly>
+        <input value="M" readonly>
+        <input value="L" readonly>
+        <input value="XL" readonly>
+      </div>
+    </div>
+    <div class="quantity">
+      <p>Quantity:</p>
+      <button (click)="subQuantity()">-</button>
+      <p>{{quantity}}</p>
+      <button (click)="addQuantity()">+</button>
+    </div>
+
+    <button id="btn" (click)="addToCart()">Add To Cart</button>
+  </div>
+</div>

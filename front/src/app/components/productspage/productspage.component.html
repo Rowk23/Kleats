@@ -1,0 +1,16 @@
+<div class="all">
+  <div class="filters">
+    <h3>Filters</h3>
+  </div>
+  <div class="container">
+    <div *ngFor="let product of products">
+      <a (click)="setProduct(product)" class="item" routerLink="/product/{{product.id}}">
+        <img ngSrc="{{product.image}}" width="375" height="375">
+        <h3>{{product.name}}</h3>
+        <div class="bot">
+          <p>{{product.price}}$</p>
+        </div>
+      </a>
+    </div>
+  </div>
+</div>
