@@ -19,9 +19,27 @@ nav a{
   height: 35px;
   border-radius: 30px;
   padding-left: 15px;
-  margin-left: 192px;
 }
 .right{
   display: flex;
   gap: 50px;
+}
+.container{
+  margin-left: 192px;
+}
+
+.src_elem{
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  width: 615px;
+}
+.elem{
+  display: flex;
+  height: 150px;
+  outline: solid;
+  background: white;
+  align-items: center;
+  gap: 50px;
+  cursor: pointer;
 }

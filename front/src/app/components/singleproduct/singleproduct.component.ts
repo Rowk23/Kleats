@@ -4,6 +4,8 @@ import {ProductService} from '../../services/product.service';
 import {Observable, range} from 'rxjs';
 import {NgOptimizedImage} from '@angular/common';
 import {CartService} from '../../services/cart.service';
+import {ActivatedRoute, NavigationEnd, Router} from '@angular/router';
+import {routes} from '../../app.routes';
 
 @Component({
   selector: 'app-singleproduct',
@@ -16,13 +18,20 @@ import {CartService} from '../../services/cart.service';
 export class SingleproductComponent implements OnInit{
 
   quantity:number = 1;
-  product: Product = {id:1,name:"",image:"",price:0};
+  product: any;
+  a: string = " ";
 
   constructor(private productService: ProductService,
-            private cartService: CartService) {}
+            private cartService: CartService,
+              private router: Router) {
+    this.router.events.subscribe((event) => {
+      if(event instanceof NavigationEnd)
+        this.product = this.productService.getProduct(parseInt(this.router.url.replace('/product/','')))
+          .subscribe(data => this.product = data);
+    });
+  }
 
   ngOnInit(): void {
-    this.product = this.productService.current;
   }
   addQuantity(){
     this.quantity++;

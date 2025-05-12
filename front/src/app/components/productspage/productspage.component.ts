@@ -22,12 +22,9 @@ export class ProductspageComponent implements OnInit{
       .subscribe(data => this.products = data);
   }
 
-
   ngOnInit(): void {
     this.getProducts();
   }
 
-  setProduct(product: Product){
-    this.productService.setProduct(product);
-  }
+  search(){}
 }

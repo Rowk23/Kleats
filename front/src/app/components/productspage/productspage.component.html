@@ -1,10 +1,49 @@
 <div class="all">
   <div class="filters">
     <h3>Filters</h3>
+    <div class="category">
+      <p><b>League:</b></p>
+      <div class="cat-item">
+        <input type="checkbox" id="premier"/>
+        <label for="premier">Premier League</label>
+      </div>
+      <div class="cat-item">
+        <input type="checkbox" id="laliga" name="laliga"/>
+        <label for="laliga">La Liga</label>
+      </div>
+      <div class="cat-item">
+        <input type="checkbox" id="liga1"/>
+        <label for="liga1">Liga 1</label>
+      </div>
+      <div class="cat-item">
+        <input type="checkbox" id="serieA"/>
+        <label for="serieA">Serie A</label>
+      </div>
+    </div>
+    <div class="category">
+      <p><b>Year:</b></p>
+      <div class="cat-item">
+        <input type="checkbox" id="2024"/>
+        <label for="2024">2024</label>
+      </div>
+      <div class="cat-item">
+        <input type="checkbox" id="2023"/>
+        <label for="2023">2023</label>
+      </div>
+      <div class="cat-item">
+        <input type="checkbox" id="2022"/>
+        <label for="2022">2022</label>
+      </div>
+      <div class="cat-item">
+        <input type="checkbox" id="2021"/>
+        <label for="2021">2021</label>
+      </div>
+    </div>
+    <button (click)="search()">Apply</button>
   </div>
   <div class="container">
     <div *ngFor="let product of products">
-      <a (click)="setProduct(product)" class="item" routerLink="/product/{{product.id}}">
+      <a class="item" routerLink="/product/{{product.id}}">
         <img ngSrc="{{product.image}}" width="375" height="375">
         <h3>{{product.name}}</h3>
         <div class="bot">

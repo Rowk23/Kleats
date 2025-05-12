@@ -9,22 +9,25 @@
 <ng-template #elseBlock>
   <div class="all">
   <div class="container">
-  <h1>Your products: </h1>
+  <p id="h1">Your cart: </p>
   <div *ngFor="let product of cartService.getItems()">
     <div class="product">
       <img ngSrc="{{product.image}}" width="200" height="200">
-      <p>{{product.name}}</p>
-      <p>{{product.price}}$
-      <p>{{product.quantity}}</p>
-      <button id="btn1" (click)="removeItem(product)">X</button>
+      <div class="details">
+        <p>{{product.name}}</p>
+        <p>Size: </p>
+        <p>Quantity: {{product.quantity}}</p>
+        <button id="btn1" (click)="removeItem(product)">X Remove</button>
+      </div>
+      <p id="price">{{product.price}}$
     </div>
   </div>
   </div>
     <div class="checkout">
-      <h1>Your order:</h1>
+      <h1>Order:</h1>
       <div class="content">
       @for( product of cartService.getItems(); track product.id){
-        <p>1x {{product.name}}</p>
+        <p>{{product.quantity}} x {{product.name}}</p>
         <p>{{product.price}}</p>
       }
       </div>

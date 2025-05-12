@@ -9,18 +9,21 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
-@Entity
 @Data
-@Table(name = "products")
-public class Product {
+@Entity
+@Table(name = "filters")
+public class Filters {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     int id;
     String name;
-    String image;
-    double price;
 
-    @ManyToMany(mappedBy = "products")
-    @JsonBackReference
-    Set<Filters> filters;
+    @ManyToMany(fetch = FetchType.EAGER)
+    @JoinTable(
+        name = "filter_products",
+        joinColumns = @JoinColumn(name = "filter_id"),
+        inverseJoinColumns = @JoinColumn(name = "product_id")
+    )
+    @JsonManagedReference
+    Set<Product> products;
 }
