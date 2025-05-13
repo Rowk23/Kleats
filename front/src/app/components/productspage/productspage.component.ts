@@ -14,17 +14,29 @@ import {Projects} from '@angular/cli/lib/config/workspace-schema';
 })
 export class ProductspageComponent implements OnInit{
   products: any = [];
+  lsearch:string[] = [];
   constructor(private productService: ProductService,
               private cartService: CartService) {}
 
-  getProducts(){
-    this.productService.getProducts()
+  getProducts(arr: string[]){
+    this.productService.getCat(arr)
       .subscribe(data => this.products = data);
   }
 
   ngOnInit(): void {
-    this.getProducts();
+    this.getProducts(this.lsearch);
   }
 
-  search(){}
+  search(event: any){
+    if(event.target.checked){
+      this.lsearch.push(event.target.id);
+    }
+    else {
+      let index = this.lsearch.indexOf(event.target.id);
+      this.lsearch.splice(index,1);
+    }
+  }
+  apply(){
+    this.getProducts(this.lsearch)
+  }
 }

@@ -20,6 +20,7 @@ export class SingleproductComponent implements OnInit{
   quantity:number = 1;
   product: any;
   a: string = " ";
+  size:string="";
 
   constructor(private productService: ProductService,
             private cartService: CartService,
@@ -42,8 +43,19 @@ export class SingleproductComponent implements OnInit{
   }
 
   addToCart(){
-    for(let i=0;i<this.quantity;i++){
-      this.cartService.addToCart(this.product);
+    if(this.size==""){
+      window.alert("Please select a size!")
     }
+    else{
+      for(let i=0;i<this.quantity;i++){
+        this.cartService.addToCart(this.product,this.size);
+      }
+      window.alert("Item added to cart!");
+    }
+  }
+
+  changeSize(event: any){
+      this.size = event.target.id;
+      console.log(this.size);
   }
 }

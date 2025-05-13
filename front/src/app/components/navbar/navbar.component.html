@@ -1,21 +1,22 @@
 <nav>
-  <a href="#"><img ngSrc="tshirt.ico" height="70" width="70"></a>
+  <a id="logo" href="#"><img ngSrc="tshirt.ico" height="70" width="70"></a>
   <div class="container">
     <form [formGroup]="searchForm" (ngSubmit)="onSearchSubmit()">
       <input id="searchbar" type="text" placeholder="Search..." formControlName="searchValue">
     </form>
     <div class="src_elem">
       <div *ngFor="let product of products">
-        <a class="elem" routerLink="/product/{{product.id}}"  (click)="resetProducts()">
+        <a class="elem" routerLink="/product/{{product.id}}">
           <img ngSrc="{{product.image}}" height="100" width="100">
           <p>{{product.name}}</p>
+          <p>{{product.price}}$</p>
         </a>
       </div>
     </div>
   </div>
   <div class="right">
     <a routerLink="products">Men</a>
-    <a routerLink="products">Woman</a>
+    <a routerLink="products">Sale</a>
     <a routerLink="cart">Cart</a>
   </div>
 </nav>

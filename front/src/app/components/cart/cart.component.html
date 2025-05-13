@@ -7,6 +7,7 @@
   </div>
 </div>
 <ng-template #elseBlock>
+  <div class="background">
   <div class="all">
   <div class="container">
   <p id="h1">Your cart: </p>
@@ -15,7 +16,7 @@
       <img ngSrc="{{product.image}}" width="200" height="200">
       <div class="details">
         <p>{{product.name}}</p>
-        <p>Size: </p>
+        <p>Size: {{product.size}}</p>
         <p>Quantity: {{product.quantity}}</p>
         <button id="btn1" (click)="removeItem(product)">X Remove</button>
       </div>
@@ -28,12 +29,13 @@
       <div class="content">
       @for( product of cartService.getItems(); track product.id){
         <p>{{product.quantity}} x {{product.name}}</p>
-        <p>{{product.price}}</p>
+        <p>{{product.price}}$</p>
       }
+        <p>Shipping cost: {{shipping}}$</p>
       </div>
-      <h3>Shipping cost:</h3>
       <h1>Total: {{price}}$</h1>
-      <button id="check">CHECK OUT</button>
+      <button id="check" (click)="checkout()" >CHECK OUT</button>
     </div>
+  </div>
   </div>
 </ng-template>

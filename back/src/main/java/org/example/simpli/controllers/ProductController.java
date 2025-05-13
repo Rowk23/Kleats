@@ -6,10 +6,13 @@ import lombok.AllArgsConstructor;
 import lombok.RequiredArgsConstructor;
 import org.example.simpli.entities.Product;
 import org.example.simpli.models.RequestDTO;
+import org.example.simpli.models.StripeResponse;
 import org.example.simpli.services.ProductService;
 import org.example.simpli.services.StripeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -44,8 +47,11 @@ public class ProductController {
         return productService.getLike(name);
     }
 
-    @PostMapping("/checkout/hosted")
-    void hostedCheckout(@RequestBody RequestDTO request) {
-        return ;
+    @PostMapping("/checkout")
+    public ResponseEntity<StripeResponse> hostedCheckout(@RequestBody RequestDTO request) {
+        var response = stripeService.integratedCheckout(request);
+        return ResponseEntity
+            .status(HttpStatus.OK)
+            .body(response);
     }
 }

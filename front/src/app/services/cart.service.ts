@@ -12,7 +12,7 @@ export class CartService {
     this.items = JSON.parse(localStorage.getItem('items')||'[]');
   }
 
-  addToCart(product: Product) {
+  addToCart(product: Product,s:string) {
     this.check = false;
     for(this.a of this.items){
       if(this.a.id==product.id) {
@@ -22,7 +22,7 @@ export class CartService {
       }
     }
     if(!this.check)
-      this.items.push({...product, quantity: 1});
+      this.items.push({...product, quantity: 1, size: s});
     this.syncItems();
   }
 
@@ -33,6 +33,11 @@ export class CartService {
   removeItem(product: Product){
     const index = this.items.indexOf(product);
     this.items.splice(index,1);
+    this.syncItems();
+  }
+
+  clearCart(){
+    this.items.splice(0);
     this.syncItems();
   }
 

@@ -1,7 +1,9 @@
 .all{
   display: flex;
   gap: 30px;
-  margin-top: 30px;
+  padding-top: 30px;
+  background-color: #121212;
+  color: white;
 }
 
 .container{
@@ -23,7 +25,8 @@
   border-radius: 20px;
   cursor: pointer;
   text-decoration: none;
-  color: black;
+  color: white;
+  background-color: #181818;
 }
 
 .bot {
@@ -35,9 +38,13 @@
 
 .filters{
   width: 300px;
-  text-align: center;
-  outline-style: solid;
   outline-width: 0.01rem;
+  display: flex;
+  flex-direction: column;
+  background-color: #181818;
+}
+.filters h3{
+  align-self: center;
 }
 .category{
   display: flex;
@@ -46,17 +53,20 @@
   border-bottom: solid;
   border-top: solid;
   border-width: 0.01rem;
+  padding-left: 10px;
 }
 .cat-item{
   display: flex;
   flex-direction: row;
-  padding-left: 50px;
   width: auto;
   height: 30px;
   align-items: center;
 }
+.cat-item label{
+  width: 100%;
+}
 .cat-item:has(input:checked){
-  background-color: #e8e8e8;
+  background-color: #404040;
 }
 .filters button{
   margin-top: 30px;
@@ -67,9 +77,13 @@
   cursor: pointer;
   font-size: 20px;
   font-family: "Markl Mono", sans-serif;
+  margin-left: auto;
+  margin-right: auto;
+  color: white;
 }
 
 .filters button:hover{
   background-color: #e8e8e8;
+  color: black;
 }
 

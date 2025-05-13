@@ -1,4 +1,4 @@
-import {Component, inject, OnInit} from '@angular/core';
+import {Component, HostListener, inject, OnInit} from '@angular/core';
 import {RouterLink} from '@angular/router';
 import {CommonModule, NgOptimizedImage} from '@angular/common';
 import {ProductService} from '../../services/product.service';
@@ -38,7 +38,9 @@ export class NavbarComponent implements OnInit{
 
   ngOnInit(): void {
   }
+  @HostListener("document:click")
   resetProducts(){
+    this.products = [];
   }
 
 }

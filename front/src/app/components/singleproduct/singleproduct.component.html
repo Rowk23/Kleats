@@ -6,13 +6,13 @@
     <h1 id="t1">{{product.name}}</h1>
     <h3>{{product.price}}$</h3>
     <div class="options">
-      <p id="sz">Select Size:</p>
+      <p id="sz">Select Size: {{size}}</p>
       <div class="sizes" tabindex="0">
-        <input value="XS" readonly>
-        <input value="S" readonly>
-        <input value="M" readonly>
-        <input value="L" readonly>
-        <input value="XL" readonly>
+        <input value="XS" id="XS" readonly (selectionchange)="changeSize($event)">
+        <input value="S" id="S" readonly (selectionchange)="changeSize($event)">
+        <input value="M" id="M" readonly (selectionchange)="changeSize($event)">
+        <input value="L" id="L" readonly (selectionchange)="changeSize($event)">
+        <input value="XL" id="XL" readonly (selectionchange)="changeSize($event)">
       </div>
     </div>
     <div class="quantity">

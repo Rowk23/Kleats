@@ -1,6 +1,7 @@
 .container{
   display: flex;
   flex-direction: row;
+  margin-top: 50px;
 }
 .text{
   display: flex;
@@ -8,6 +9,7 @@
   gap: 30px;
   padding-top: 30px;
   font-size: 20px;
+  padding-left: 50px;
 }
 #btn{
   background: none;
@@ -35,7 +37,6 @@
   outline: none;
 }
 .sizes input:focus-visible{
-  background-color: #e8e8e8;
 }
 #sz{
   font-size: 20px;
@@ -66,5 +67,7 @@
 }
 .images{
   margin-left: 100px;
+  outline: 0.01rem;
+  outline-style: solid;
 }
 

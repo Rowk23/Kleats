@@ -17,7 +17,12 @@ export class ProductService{
   getSearch(search: string){
     return this.http.get("http://localhost:8080/api/products/search/"+search);
   }
-  getCat(search: string[]){
-    return this.http.get("http://localhost:8080/api/products?list=");
+  getCat(filters: string[]){
+    let str: string = "";
+    for(let f of filters){
+      str = str.concat(f+",");
+    }
+    str = str.substring(0, str.length - 1);
+    return this.http.get("http://localhost:8080/api/products?list="+str);
   }
 }

@@ -4,43 +4,53 @@
     <div class="category">
       <p><b>League:</b></p>
       <div class="cat-item">
-        <input type="checkbox" id="premier"/>
-        <label for="premier">Premier League</label>
+        <input type="checkbox" id="Premier League" (change)="search($event)"/>
+        <label for="Premier League">Premier League</label>
       </div>
       <div class="cat-item">
-        <input type="checkbox" id="laliga" name="laliga"/>
-        <label for="laliga">La Liga</label>
+        <input type="checkbox" id="La Liga" (change)="search($event)"/>
+        <label for="La Liga">La Liga</label>
       </div>
       <div class="cat-item">
-        <input type="checkbox" id="liga1"/>
-        <label for="liga1">Liga 1</label>
+        <input type="checkbox" id="Liga 1" (change)="search($event)"/>
+        <label for="Liga 1">Liga 1</label>
       </div>
       <div class="cat-item">
-        <input type="checkbox" id="serieA"/>
-        <label for="serieA">Serie A</label>
+        <input type="checkbox" id="Serie A" (change)="search($event)"/>
+        <label for="Serie A">Serie A</label>
+      </div>
+      <div class="cat-item">
+        <input type="checkbox" id="League 1" (change)="search($event)"/>
+        <label for="League 1">League 1</label>
       </div>
     </div>
     <div class="category">
       <p><b>Year:</b></p>
       <div class="cat-item">
-        <input type="checkbox" id="2024"/>
+        <input type="checkbox" id="2024" (change)="search($event)"/>
         <label for="2024">2024</label>
       </div>
       <div class="cat-item">
-        <input type="checkbox" id="2023"/>
+        <input type="checkbox" id="2023" (change)="search($event)"/>
         <label for="2023">2023</label>
       </div>
       <div class="cat-item">
-        <input type="checkbox" id="2022"/>
+        <input type="checkbox" id="2022" (change)="search($event)"/>
         <label for="2022">2022</label>
       </div>
       <div class="cat-item">
-        <input type="checkbox" id="2021"/>
+        <input type="checkbox" id="2021" (change)="search($event)"/>
         <label for="2021">2021</label>
       </div>
     </div>
-    <button (click)="search()">Apply</button>
+    <button (click)="apply()">Apply</button>
   </div>
+  <div *ngIf="products.length==0; else elseBlock">
+    <div>
+      <h1>No products found!</h1>
+    </div>
+  </div>
+  <ng-template #elseBlock>
   <div class="container">
     <div *ngFor="let product of products">
       <a class="item" routerLink="/product/{{product.id}}">
@@ -52,4 +62,5 @@
       </a>
     </div>
   </div>
+  </ng-template>
 </div>

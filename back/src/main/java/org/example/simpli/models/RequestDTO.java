@@ -5,8 +5,6 @@ import org.example.simpli.entities.Product;
 
 @Getter
 public class RequestDTO {
-    private Long amount;
-    private Long quantity;
-    private String name;
+    private ProductDTO[] products;
     private String currency;
 }
